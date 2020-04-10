@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-@Controller
+@Controller //using @Controller means this is an MVC controller
 public class AppController {
 
 	@Autowired
@@ -21,10 +21,10 @@ public class AppController {
 	
 	@RequestMapping("/")
 	public String viewHomePage(Model model) {
-		//List<Product> listProducts = service.listAll();
 		//List<Product> listProducts = service.findByMadeIn("California");
-		Product listProducts = service.findByName("Test Product");
-		service.deleteByName("Test Product");
+		//Product listProducts = service.findByName("Product 3");
+		//service.deleteByName("Test Product");
+		List<Product> listProducts = service.listAll();
 		model.addAttribute("listProducts", listProducts);
 		
 		return "index";
